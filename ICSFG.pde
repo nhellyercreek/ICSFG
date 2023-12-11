@@ -1,4 +1,3 @@
-//Final game Aryan & Noah
 boolean alive;
 int [] pacX;
 int [] pacY;
@@ -26,4 +25,23 @@ void setup() {
   dam = 3;
   canUse = true;
   timer = 120000;
+}
+
+void draw() {
+  drawPen();
+  
+}
+void keyPressed() {
+  if(key=='W' || key=='w'){
+    penX-=penXS;
+  }
+  if(key=='S' || key=='s'){
+    penX+=penXS;
+  }
+}
+
+void drawPen() {
+  background(0);
+  fill(255);
+  ellipse(penY,penX,20,20);
 }
