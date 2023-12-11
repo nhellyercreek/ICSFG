@@ -1,21 +1,29 @@
-boolean alive = true;
-int [] pacX = new int [4];
-int [] pacY = new int [4];
+//Final game Aryan & Noah
+boolean alive;
+int [] pacX;
+int [] pacY;
 int penX;
 int penY;
-int [] pacXS = new int [4];
-int [] penYS= new int [4];
-int ability;
+int penXS;
+int penYS;
+int [] pacXS;
+int [] pacYS;
 int timer;
 boolean canUse;
+int dam;
 
 void setup() {
   fullScreen();
-  
-}
-void draw() {
-  
-}
-void keyPressed() {
-  
+  alive = true;
+  pacX = new int [4];
+  pacY = new int [4];
+  pacXS = new int [4];
+  pacYS = new int [4];
+  penX = int(random(0,width-20));
+  penY =int(random(0,height-20));
+  penXS = 3;
+  penYS = 3;
+  dam = 3;
+  canUse = true;
+  timer = 120000;
 }
