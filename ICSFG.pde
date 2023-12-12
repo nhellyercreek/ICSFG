@@ -7,6 +7,7 @@ int penYS;
 int penXS;
 int[] pacXS;
 int[] pacYS;
+boolean [] pacT;
 Timer gameTimer;
 Timer abilityTimer;
 boolean canUse;
@@ -23,6 +24,7 @@ void setup() {
   pacY = new int[4];
   pacXS = new int[4];
   pacYS = new int[4];
+  pacT = new boolean[4];
   penY = int(random(40, height - 40));
   penX = int(random(40, width - 40));
   penYS = 3;
@@ -34,6 +36,7 @@ void setup() {
   colorMode(HSB, 360, 100, 100);
   hue = 0;
   won = false;
+  pacT[0]=true;
 }
 
 void draw() {
@@ -69,7 +72,21 @@ void handleKeyPress() {
 }
 
 void pac() {
-  
+  for (int i = 0; i<pacX.length; i++){
+    ellipse(pacX[i],pacY[i],20,20);
+  }
+  if (gameTimer.timeLeft() <=3*60-30){
+    pacT[1]=true;
+  }
+  if (gameTimer.timeLeft() <=3*60-60){
+    pacT[2]=true;
+  }
+  if (gameTimer.timeLeft() <=3*60-90){
+    pacT[3]=true;
+  }
+  if (gameTimer.timeLeft() <=3*60-120){
+    pacT[4]=true;
+  }
 }
 
 void visuals() {
@@ -139,3 +156,4 @@ void drawPen() {
   fill(255);
   ellipse(penX, penY, 25, 25);
 }
+
