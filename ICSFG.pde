@@ -31,7 +31,7 @@ void setup() {
   penXS = 3;
   dam = 3;
   canUse = true;
-  gameTimer = new Timer(3*60);
+  gameTimer = new Timer(3*30);
   abilityTimer = new Timer(10);
   colorMode(HSB, 360, 100, 100);
   hue = 0;
@@ -48,7 +48,9 @@ void draw() {
 
   if (gameTimer.isFinished()) {
     won = true;
-    
+    background(0,255,0);
+    textSize(width/5);
+    text("YOU ESCAPED PACMAN THE PENGUIN HUNTER",width/2,height/2);
   }
 
   if (keyPressed) {
@@ -153,7 +155,10 @@ void backgroundC() {
 }
 
 void drawPen() {
-  fill(255);
+  fill(0,0,255);
   ellipse(penX, penY, 25, 25);
 }
-
+void pacfollow(){
+  pacY[1] += penY;
+  pacX[1] += penX;
+}
