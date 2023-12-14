@@ -287,6 +287,34 @@ void playAgain() {
   text("Play Again", width/2, height/2 + 100);
   won = true;
 }
+void lose() {
+  background(0);
+  textSize(50);
+  textAlign(CENTER);
+  text("RED IS THE COLOR OF DEAD PENGUINS", width/2, height/2);
+
+
+  if (!replay) {
+    endTime = millis();
+    replay = true;
+    alpha = 0;
+  }
+  if (millis() > endTime + 2000) {
+    playAgain();
+  }
+  fill(255, alpha);
+  rectMode(CENTER);
+  rect(width/2, height/2 + 100, 200, 60, 10);
+
+  // Text
+  fill(0, alpha);
+  textSize(32);
+  textAlign(CENTER, CENTER);
+  text("Play Again", width/2, height/2 + 100);
+  won = false;
+}
+
+// Button Logic
 
 void mousePressed() {
   // Button pressed
