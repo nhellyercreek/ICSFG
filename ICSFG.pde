@@ -3,7 +3,8 @@ PENGUIN VS PACMAN
  BY: NOAH AND ARYAN
  HOPE YOU ENJOY :D
  
-
+ 
+ 
 
                          4MMMMMMMMMMMML
                        4MMMMMMMMMMMMMMMML
@@ -44,8 +45,7 @@ PENGUIN VS PACMAN
       """"""""       MMMMM               "        ""
               """"""""                      """"""" 
               
-              
-*/
+ */
 boolean alive;
 int[] pacX;
 int[] pacY;
@@ -138,9 +138,9 @@ void setup() {
   angle = new float[4];
   won = false;
   replay = false;
-    for (int i = 0; i < pacX.length; i++) {
-    pacX[i] = -100; 
-    pacY[i] = -100; 
+  for (int i = 0; i < pacX.length; i++) {
+    pacX[i] = -100;
+    pacY[i] = -100;
   }
 
   penguinImage = loadImage("penguin.png");
@@ -171,7 +171,7 @@ void draw() {
     pac();
     pacLogic();
     logic();
-  
+
     // boss and win logic based off of timers
     if (gameTimer.timeLeft() <= 77) {
       boss = true;
@@ -191,7 +191,7 @@ void draw() {
   } else {
     intro();
   }
-     if (settings) {
+  if (settings) {
     setting();
   }
 }
@@ -204,7 +204,7 @@ void intro() {
   textSize(50);
   text("Welcome to PENGUIN V PACMAN", width/2, 200);
   textSize(30);
-  text("You're playing as a penguin who is running from the killer, PACMAN. Use WASD to control the penguin and try your best to escape from pacman! You have to survive 3 minutes and run away from PACMAN. You have a special ability that pacman does not have. You can go through walls and go to the other side. Use this to your advantage when you're running away from him. You can use this ability every 10 second so use it wisely! lso, make sure to watch out for other pacman because they spawn every 30 seconds. Also, at the last minute, there will be a very fun surprise so watch out for that! Anyways, enjoy the game and thank you for playing!                            Click anywhere to continue.", 200, 400, width-400, height-400) ;
+  text("You're playing as a penguin who is running from the killer, PACMAN. Use WASD to control the penguin and try your best to escape from pacman! You have to survive 3 minutes and run away from PACMAN. You have a special ability that pacman does not have. You can go through walls and go to the other side. Use this to your advantage when you're running away from him. You can use this ability every 10 second so use it wisely! lso, make sure to watch out for other pacman because they spawn every 30 seconds. Also, at the last minute, there will be a very fun surprise so watch out for that! Anyways, enjoy the game and thank you for playing!                            Click anywhere to continue. Press S to open settings", 200, 400, width-400, height-400) ;
 }
 void boss() {
   // boss
@@ -278,7 +278,7 @@ void pacLogic() {
       // Draw Pacman image
       imageMode(CENTER);
       image(pacmanImage, squareX[i], squareY[i]);
-      
+
       distance[i] = dist(penX, penY, squareX[i], squareY[i]);
       isTouching[i] = distance[i] < squareSize / 2;
     }
@@ -507,6 +507,11 @@ void resetGame() {
     bossM.pause();
     bossM.rewind();
   }
+  if (tMode == true) {
+    dmg=10;
+  } else {
+    dmg = 3;
+  }
   lost = false;
   squareX = new float[4];
   squareY = new float[4];
@@ -541,9 +546,9 @@ void resetGame() {
   strokeWeight(5);
   colorMode(HSB, 360, 100, 100);
   hue = 0;
-      for (int i = 0; i < pacX.length; i++) {
-    pacX[i] = -100; 
-    pacY[i] = -100; 
+  for (int i = 0; i < pacX.length; i++) {
+    pacX[i] = -100;
+    pacY[i] = -100;
   }
 }
 void boarder() {
@@ -567,12 +572,12 @@ void boarder() {
 
 // settings visuals
 void setting() {
-  if (settings){
+  if (settings) {
     background(0);
-    text("Mr. T mode?" ,width/2, height/2);
+    text("Mr. T mode?", width/2, height/2);
     text("press Y for Yes N for No", width/2, height/2+30);
-    text("Currently, it is: "+tMode,width/2, height/2+60);
-    text("Press E to go to main screen",width/2, height/2+90);
+    text("Currently, it is: "+tMode, width/2, height/2+60);
+    text("Press E to go to main screen", width/2, height/2+90);
   }
 }
 
@@ -584,57 +589,57 @@ void keyPressed() {
   if ((key == 'y' || key == 'Y') && settings) {
     tMode = true;
     dmg = 10;
-  }  
+  }
   if ((key == 'n' || key == 'N') && settings) {
     tMode = false;
   }
   if ((key == 'e' || key == 'E') && settings) {
-    settings = false; 
+    settings = false;
   }
 }
 
 /*
 
-
-
-                         4MMMMMMMMMMMML
-                       4MMMMMMMMMMMMMMMML
-                      MMMMMMMMMMMMMMMMMMML
-                     4MMMMMMMMMMMMMMMMMMMMM
-                    4MMMMMMMMMMMMMMMMMMMMMML
-                    MMMMP   MMMMMM   MMMMMMM
-                    MMMM MM  MMM  MM  MMMMMM
-                    MMMM MM  MMM  MM  MMMMML
-                     MMM MP,,,,,,,MM  MMMMMM
-                      MM,"          "MMMMMMP
-                      MMw           'MMMMMM
-                      MM"w         w MMMMMMML
-                      MM" w       w " MMMoMMML
-                     MMM " wwwwwww "  MMMMMMML
-                   MMMP   ".,,,,,,"     MMMMMMMML
-                  MMMP                    MMMMMMMML
-                MMMMM                      MMMMMMMML
-               MMMMM,,-''             ''-,,MMMMMMMMML
-              MMMMM                          MMMMMMMMML
-             MMMMM                            MMMMMMMMML
-            MMMMM                             MMMMMMMMMM
-            MMMM                               MMMMMMMMMM
-           MMMMM                               MMMMMMMMMML
-          MMMMM                                MMMMMMMMMMM
-         MMMMMM                                MMMMMMMMMMM
-         MMMMMMM                               MMMMMMMMMMM
-         """"MMMM                             MMMMMMMMMMP
-        "     ""MMM                            MMMMMMMMP
-   "" "         "MMMMMM                      """"MMMMMP"""
+ 
+ 
+ 4MMMMMMMMMMMML
+ 4MMMMMMMMMMMMMMMML
+ MMMMMMMMMMMMMMMMMMML
+ 4MMMMMMMMMMMMMMMMMMMMM
+ 4MMMMMMMMMMMMMMMMMMMMMML
+ MMMMP   MMMMMM   MMMMMMM
+ MMMM MM  MMM  MM  MMMMMM
+ MMMM MM  MMM  MM  MMMMML
+ MMM MP,,,,,,,MM  MMMMMM
+ MM,"          "MMMMMMP
+ MMw           'MMMMMM
+ MM"w         w MMMMMMML
+ MM" w       w " MMMoMMML
+ MMM " wwwwwww "  MMMMMMML
+ MMMP   ".,,,,,,"     MMMMMMMML
+ MMMP                    MMMMMMMML
+ MMMMM                      MMMMMMMML
+ MMMMM,,-''             ''-,,MMMMMMMMML
+ MMMMM                          MMMMMMMMML
+ MMMMM                            MMMMMMMMML
+ MMMMM                             MMMMMMMMMM
+ MMMM                               MMMMMMMMMM
+ MMMMM                               MMMMMMMMMML
+ MMMMM                                MMMMMMMMMMM
+ MMMMMM                                MMMMMMMMMMM
+ MMMMMMM                               MMMMMMMMMMM
+ """"MMMM                             MMMMMMMMMMP
+ "     ""MMM                            MMMMMMMMP
+ "" "         "MMMMMM                      """"MMMMMP"""
  "               "MMMMMMM                   ""   """"""   "
  "                ""MMMMMM                 M"             " ""
-  "                 "                   MMM"                  "
+ "                 "                   MMM"                  "
  "                   "M               MMMM"                   "
  "                    "MM        MMMMMMMMM"                ""
  "                    "MMMMMMMMMMMMMMMMMMM"              """
-  """"                "MMMMMMMMMMMMMMMMMM"           """"
-      """"""""       MMMMM               "        ""
-              """"""""                      """"""" 
-              
-              
-*/
+ """"                "MMMMMMMMMMMMMMMMMM"           """"
+ """"""""       MMMMM               "        ""
+ """"""""                      """""""
+ 
+ 
+ */
