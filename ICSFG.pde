@@ -98,6 +98,7 @@ AudioPlayer BGM;
 AudioPlayer introM;
 
 void setup() {
+  // initialize all variables
   settings = false;
   tMode = false;
   intro = true;
@@ -215,13 +216,13 @@ void boss() {
   }
   BGM.rewind();
   bossM.play();
-
+  // calculate angle differences between pen and boss
   float angle = atan2(penY - bossY, penX - bossX);
   bossX += cos(angle) * bossSp;
   bossY += sin(angle) * bossSp;
   imageMode(CENTER);
   image(bossImage, bossX, bossY);
-
+  // calculate distance between boss
   float distance = dist(penX, penY, bossX, bossY);
   if (distance < bossS / 2) {
     bossT = true;
@@ -274,7 +275,7 @@ void pacLogic() {
       squareX[i] += cos(angle[i]) * speed;
       squareY[i] += sin(angle[i]) * speed;
 
-      // Draw Pac-Man image instead of ellipse
+      // Draw Pacman image
       imageMode(CENTER);
       image(pacmanImage, squareX[i], squareY[i]);
       
@@ -563,6 +564,8 @@ void boarder() {
     line(displayWidth, 0, displayWidth, displayHeight);
   }
 }
+
+// settings visuals
 void setting() {
   if (settings){
     background(0);
@@ -572,6 +575,8 @@ void setting() {
     text("Press E to go to main screen",width/2, height/2+90);
   }
 }
+
+// key pressed for intro and settings
 void keyPressed() {
   if ((key == 's' || key == 'S') && intro) {
     settings = true;
